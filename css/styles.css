@@ -41,6 +41,13 @@ body {
   color: #ffffff;
 }
 
+.hero-logo {
+  display: block;
+  width: min(320px, 72vw);
+  height: auto;
+  margin: 0 auto 2rem;
+}
+
 .hero .container {
   width: min(1280px, 92%);
   max-width: none;

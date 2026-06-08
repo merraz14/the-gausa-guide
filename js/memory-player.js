@@ -34,12 +34,32 @@ if (!audio || !startButton || !pauseButton || !statusText) {
 let currentIndex = 0;
 let hasStarted = false;
 
+const memoryTitles = [
+  "Welcome",
+  "Harriet",
+  "Abbie and Anna",
+  "Alyssa",
+  "Anny, Carolina and Raquel",
+  "Catherine and Davina",
+  "Frances",
+  "Ivan",
+  "Lee",
+  "Megan",
+  "Rosario",
+  "Sophie",
+  "Stefano",
+  "Susan",
+  "Tom",
+  "Alison",
+  "Farewell"
+];
+
 const playlist = Array.from({ length: totalMemories }, (_, index) => {
   const memoryNumber = index + 1;
   const paddedNumber = String(memoryNumber).padStart(2, "0");
 
   const item = {
-    title: `Memory ${memoryNumber}`,
+    title: memoryTitles[index] || `Memory ${memoryNumber}`,
     audio: `${audioFolder}/${audioPrefix}${paddedNumber}.${audioExtension}`,
     mediaType: "image",
     mediaSrc: `${imageFolder}/${imagePrefix}${paddedNumber}.${imageExtension}`
