@@ -63,6 +63,7 @@ playlist.forEach((item) => {
     video.src = item.mediaSrc;
     video.type = item.videoType;
     video.controls = true;
+    video.muted = true;
     video.playsInline = true;
     video.preload = "metadata";
 
