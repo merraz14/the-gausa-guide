@@ -150,16 +150,38 @@ h2 {
   color: #ffffff;
 }
 
-.memory-player {
+.memory-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.85fr) minmax(320px, 1fr);
+  gap: 2rem;
+  align-items: stretch;
   margin-top: 2rem;
 }
 
-/* Desktop: match the 1600x2000 image canvas ratio */
+/* Poster on the left */
+.memory-poster {
+  background: var(--player-bg);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.memory-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  background: var(--player-bg);
+}
+
+/* Player on the right */
+.memory-player {
+  margin-top: 0;
+}
+
 .memory-swiper {
-  width: min(720px, 92vw, calc(78vh * 0.8));
+  width: 100%;
   aspect-ratio: 4 / 5;
   margin: 0 auto;
-  border-radius: 1.5rem;
   overflow: hidden;
   box-shadow: var(--shadow);
   background: var(--player-bg);
@@ -190,6 +212,13 @@ h2 {
   max-height: 100%;
 }
 
+/* Keep poster and player equal height */
+.memory-poster,
+.memory-swiper {
+  height: min(78vh, 760px);
+}
+
+/* Buttons stay centred under both columns */
 .memory-controls {
   display: flex;
   justify-content: center;
@@ -215,17 +244,44 @@ h2 {
   margin-top: 1rem;
 }
 
-/* Mobile: keep the behaviour you already like */
+/* Tablet/mobile layout */
+@media (max-width: 900px) {
+  .memory-layout {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .memory-poster,
+  .memory-swiper {
+    height: auto;
+  }
+
+  .memory-poster {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .memory-swiper {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+  }
+}
+
 @media (max-width: 700px) {
   .section {
     padding: 2.5rem 0;
   }
 
+  .memory-layout {
+    margin-top: 1.5rem;
+  }
+
+  .memory-poster {
+    max-width: 100%;
+  }
+
   .memory-swiper {
-    width: 100%;
-    aspect-ratio: auto;
-    height: min(68vh, 620px);
-    border-radius: 1rem;
+    border-radius: 0;
   }
 
   .swiper-button-prev,
