@@ -50,7 +50,7 @@ body {
   text-transform: none;
   letter-spacing: 0;
   font-weight: 700;
-  color: var(--text);
+  color: #ffffff;
 }
 
 h1,
@@ -74,7 +74,7 @@ h2 {
   max-width: 720px;
   margin: 0 0 2rem;
   font-size: clamp(1.15rem, 2vw, 1.5rem);
-  color: var(--text);
+  color: #ffffff;
   font-weight: 400;
 }
 
