@@ -165,8 +165,27 @@ h2 {
   display: block;
 }
 
-.memory-audio {
-  display: block;
-  width: min(900px, 100%);
-  margin: 1.5rem auto 0;
+.memory-controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.button-secondary {
+  background: transparent;
+  color: var(--accent-dark);
+  border: 2px solid var(--accent-dark);
+}
+
+.button-secondary:hover {
+  background: var(--accent-dark);
+  color: #fff;
+}
+
+.memory-status {
+  text-align: center;
+  color: var(--muted);
+  margin-top: 1rem;
 }
