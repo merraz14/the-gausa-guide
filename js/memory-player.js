@@ -1,18 +1,15 @@
-const playlist = [
-  {
-    title: "Memory 1",
-    audio: "audio/message-1.mp3"
-  },
-  {
-    title: "Memory 2",
-    audio: "audio/message-2.mp3"
-  },
-  {
-    title: "Memory 3",
-    audio: "audio/message-3.mp3"
-  }
-];
+const totalMemories = 17;
 
+const imageFolder = "images";
+const audioFolder = "audio";
+
+const imagePrefix = "memory-";
+const audioPrefix = "message-";
+
+const imageExtension = "jpg";
+const audioExtension = "mp3";
+
+const slidesContainer = document.getElementById("memorySlides");
 const audio = document.getElementById("memoryAudio");
 const startButton = document.getElementById("memoryStartButton");
 const pauseButton = document.getElementById("memoryPauseButton");
@@ -20,6 +17,28 @@ const statusText = document.getElementById("memoryStatus");
 
 let currentIndex = 0;
 let hasStarted = false;
+
+const playlist = Array.from({ length: totalMemories }, (_, index) => {
+  const number = String(index + 1).padStart(2, "0");
+
+  return {
+    title: `Memory ${index + 1}`,
+    image: `${imageFolder}/${imagePrefix}${number}.${imageExtension}`,
+    audio: `${audioFolder}/${audioPrefix}${number}.${audioExtension}`
+  };
+});
+
+playlist.forEach((item) => {
+  const slide = document.createElement("div");
+  slide.className = "swiper-slide";
+
+  const image = document.createElement("img");
+  image.src = item.image;
+  image.alt = item.title;
+
+  slide.appendChild(image);
+  slidesContainer.appendChild(slide);
+});
 
 const memorySwiper = new Swiper(".memory-swiper", {
   loop: false,
@@ -58,6 +77,7 @@ function playCurrentTrack() {
     .then(() => {
       hasStarted = true;
       startButton.textContent = "Restart playlist";
+      pauseButton.textContent = "Pause";
       statusText.textContent = `Now playing: ${track.title}`;
     })
     .catch(() => {
