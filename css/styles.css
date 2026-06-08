@@ -27,7 +27,7 @@ body {
 }
 
 .container {
-  width: min(1080px, 92%);
+  width: min(1180px, 92%);
   margin: 0 auto;
 }
 
@@ -42,7 +42,8 @@ body {
 }
 
 .hero .container {
-  max-width: 1080px;
+  width: min(1280px, 92%);
+  max-width: none;
 }
 
 .eyebrow {
@@ -62,7 +63,8 @@ h2 {
 }
 
 h1 {
-  max-width: 900px;
+  max-width: 1120px;
+  margin-inline: auto;
   font-size: clamp(3.5rem, 11vw, 9rem);
 }
 
@@ -71,8 +73,8 @@ h2 {
 }
 
 .intro {
-  max-width: 720px;
-  margin: 0 0 2rem;
+  max-width: 760px;
+  margin: 0 auto 2rem;
   font-size: clamp(1.15rem, 2vw, 1.5rem);
   color: #ffffff;
   font-weight: 400;
@@ -150,21 +152,25 @@ h2 {
   color: #ffffff;
 }
 
+/* Two-column poster/player layout */
 .memory-layout {
   display: grid;
-  grid-template-columns: minmax(260px, 0.85fr) minmax(320px, 1fr);
+  grid-template-columns: minmax(280px, 0.92fr) minmax(360px, 1fr);
   gap: 2rem;
   align-items: stretch;
   margin-top: 2rem;
 }
 
-/* Poster on the left */
-.memory-poster {
+/* Shared desktop frame */
+.memory-poster,
+.memory-player {
+  height: min(78vh, 760px);
   background: var(--player-bg);
   box-shadow: var(--shadow);
   overflow: hidden;
 }
 
+/* Poster on the left */
 .memory-poster img {
   width: 100%;
   height: 100%;
@@ -180,10 +186,9 @@ h2 {
 
 .memory-swiper {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  height: 100%;
   margin: 0 auto;
   overflow: hidden;
-  box-shadow: var(--shadow);
   background: var(--player-bg);
 }
 
@@ -210,12 +215,6 @@ h2 {
 .memory-swiper video {
   max-width: 100%;
   max-height: 100%;
-}
-
-/* Keep poster and player equal height */
-.memory-poster,
-.memory-swiper {
-  height: min(78vh, 760px);
 }
 
 /* Buttons stay centred under both columns */
@@ -251,25 +250,40 @@ h2 {
     gap: 1.25rem;
   }
 
-  .memory-poster,
-  .memory-swiper {
-    height: auto;
-  }
-
   .memory-poster {
     max-width: 520px;
     margin: 0 auto;
+    height: auto;
+  }
+
+  .memory-poster img {
+    height: auto;
+  }
+
+  .memory-player {
+    width: min(520px, 100%);
+    aspect-ratio: 4 / 5;
+    height: auto;
+    margin-inline: auto;
   }
 
   .memory-swiper {
-    width: 100%;
-    aspect-ratio: 4 / 5;
+    height: 100%;
   }
 }
 
 @media (max-width: 700px) {
   .section {
     padding: 2.5rem 0;
+  }
+
+  .hero {
+    min-height: 62vh;
+    padding: 3rem 0;
+  }
+
+  h1 {
+    font-size: clamp(3rem, 16vw, 5.5rem);
   }
 
   .memory-layout {
@@ -280,8 +294,8 @@ h2 {
     max-width: 100%;
   }
 
-  .memory-swiper {
-    border-radius: 0;
+  .memory-player {
+    width: 100%;
   }
 
   .swiper-button-prev,
