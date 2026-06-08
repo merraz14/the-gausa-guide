@@ -7,7 +7,11 @@
   <meta name="description" content="A little leaving gift from the team." />
 
   <link rel="icon" href="images/ngfavicon.ico" type="ico" />
-  <script src="js/password.js"></script>
+  <script src="js/basicauth.js"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
@@ -33,41 +37,40 @@
       </div>
     </section>
 
-    <section id="messages" class="section section-alt">
-      <div class="container">
-        <h2>Messages from the team</h2>
+    <section class="section section-alt">
+        <div class="container">
+            <h2>Memories playlist</h2>
+            <p>Press play, then enjoy a little trip through the memories.</p>
 
-        <div class="message-grid">
-          <article class="card">
-            <p>“Wishing you all the best in your next chapter. It’s been brilliant working with you!”</p>
-            <span>— Alex</span>
-          </article>
+            <div class="memory-player">
+            <div class="swiper memory-swiper">
+                <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="images/photo-1.jpg" alt="Memory 1" />
+                </div>
 
-          <article class="card">
-            <p>“Thank you for all your help, humour, and support. Don’t be a stranger!”</p>
-            <span>— Sam</span>
-          </article>
+                <div class="swiper-slide">
+                    <img src="images/photo-2.jpg" alt="Memory 2" />
+                </div>
 
-          <article class="card">
-            <p>“You’ll be missed. Good luck with everything that comes next!”</p>
-            <span>— Priya</span>
-          </article>
+                <div class="swiper-slide">
+                    <img src="images/photo-3.jpg" alt="Memory 3" />
+                </div>
+                </div>
+
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+
+            <audio controls class="memory-audio">
+                <source src="audio/leaving-song.mp3" type="audio/mpeg" />
+                Your browser does not support the audio element.
+            </audio>
+            </div>
         </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <h2>Photo memories</h2>
-        <p>Add a few images into the <code>images</code> folder, then reference them like this:</p>
-
-        <div class="photo-row">
-          <img src="images/photo-1.jpg" alt="Team memory 1" />
-          <img src="images/photo-2.jpg" alt="Team memory 2" />
-          <img src="images/photo-3.jpg" alt="Team memory 3" />
-        </div>
-      </div>
-    </section>
+        </section>
+   
   </main>
 
   <footer class="footer">
@@ -75,5 +78,29 @@
       Made with appreciation by the team 💛
     </div>
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+    const memorySwiper = new Swiper(".memory-swiper", {
+        loop: true,
+        effect: "fade",
+        speed: 1000,
+
+        autoplay: {
+        delay: 4000,
+        disableOnInteraction: false
+        },
+
+        pagination: {
+        el: ".swiper-pagination",
+        clickable: true
+        },
+
+        navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
+        }
+    });
+    </script>
 </body>
 </html>

@@ -137,3 +137,36 @@ h2 {
   background: var(--text);
   color: #fff;
 }
+
+.memory-player {
+  margin-top: 2rem;
+}
+
+.memory-swiper {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: #111827;
+}
+
+.memory-swiper .swiper-slide {
+  display: grid;
+  place-items: center;
+  background: #111827;
+}
+
+.memory-swiper img {
+  width: 100%;
+  height: min(65vh, 620px);
+  object-fit: cover;
+  display: block;
+}
+
+.memory-audio {
+  display: block;
+  width: min(900px, 100%);
+  margin: 1.5rem auto 0;
+}
