@@ -154,34 +154,45 @@ h2 {
 
 /* Two-column poster/player layout */
 .memory-layout {
+  --feature-height: min(72vh, 700px);
+
   display: grid;
-  grid-template-columns: minmax(280px, 0.92fr) minmax(360px, 1fr);
+  grid-template-columns: auto auto;
   gap: 2rem;
   align-items: stretch;
+  justify-content: center;
   margin-top: 2rem;
 }
 
-/* Shared desktop frame */
-.memory-poster,
+/* Poster on the left: no player background, no padding */
+.memory-poster {
+  height: var(--feature-height);
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.memory-poster img {
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  background: transparent;
+  box-shadow: var(--shadow);
+}
+
+/* Player on the right: this keeps the dark media stage */
 .memory-player {
-  height: min(78vh, 760px);
+  height: var(--feature-height);
+  aspect-ratio: 4 / 5;
+  margin-top: 0;
   background: var(--player-bg);
   box-shadow: var(--shadow);
   overflow: hidden;
-}
-
-/* Poster on the left */
-.memory-poster img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-  background: var(--player-bg);
-}
-
-/* Player on the right */
-.memory-player {
-  margin-top: 0;
 }
 
 .memory-swiper {
@@ -243,27 +254,28 @@ h2 {
   margin-top: 1rem;
 }
 
-/* Tablet/mobile layout */
-@media (max-width: 900px) {
+/* Medium screens: stack before things get squeezed */
+@media (max-width: 1050px) {
   .memory-layout {
     grid-template-columns: 1fr;
     gap: 1.25rem;
   }
 
   .memory-poster {
+    height: auto;
     max-width: 520px;
     margin: 0 auto;
-    height: auto;
   }
 
   .memory-poster img {
+    width: 100%;
     height: auto;
   }
 
   .memory-player {
     width: min(520px, 100%);
-    aspect-ratio: 4 / 5;
     height: auto;
+    aspect-ratio: 4 / 5;
     margin-inline: auto;
   }
 
