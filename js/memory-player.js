@@ -157,7 +157,7 @@ function playCurrentTrack() {
   audio.play()
     .then(() => {
       hasStarted = true;
-      startButton.textContent = "Restart playlist";
+      startButton.textContent = "Restart Guide";
       pauseButton.textContent = "Pause";
       statusText.textContent = `Now playing: ${track.title}`;
     })
@@ -201,8 +201,8 @@ audio.addEventListener("ended", () => {
   if (nextIndex < playlist.length) {
     goToTrack(nextIndex, true);
   } else {
-    statusText.textContent = "Playlist finished";
-    startButton.textContent = "Play again";
+    statusText.textContent = "The End";
+    startButton.textContent = "Restart Guide";
     pauseButton.textContent = "Pause";
     hasStarted = false;
   }
