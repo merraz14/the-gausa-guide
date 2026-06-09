@@ -1,4 +1,4 @@
-const totalMemories = 17;
+const totalMemories = 19;
 
 const imageFolder = "images";
 const audioFolder = "audio";
@@ -35,7 +35,7 @@ let currentIndex = 0;
 let hasStarted = false;
 
 const memoryTitles = [
-  "Welcome",
+  "Welcome to The Gausa Guide",
   "Harriet",
   "Abbie and Anna",
   "Alyssa",
@@ -50,8 +50,10 @@ const memoryTitles = [
   "Stefano",
   "Susan",
   "Tom",
+  "Marion",
+  "Harry",
   "Alison",
-  "Farewell"
+  "Farewell and Credits ft. Sidney"
 ];
 
 const playlist = Array.from({ length: totalMemories }, (_, index) => {
